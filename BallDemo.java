@@ -19,7 +19,7 @@ public class BallDemo
     public BallDemo()
     {
         myCanvas = new Canvas("Ball Demo", 600, 500);
-        bolas = new ArrayList<>();
+        
     }
 
     /**
@@ -29,9 +29,9 @@ public class BallDemo
     {
         int ground = 400;   // position of the ground line
         Random rnd = new Random();
-
+        bolas = new ArrayList<>();
         myCanvas.setVisible(true);
-
+        
         // draw the ground
         myCanvas.drawLine(50, ground, 550, ground);
 
@@ -40,8 +40,10 @@ public class BallDemo
             int rojo = rnd.nextInt(255);
             int azul = rnd.nextInt(255);
             int verde = rnd.nextInt(255);
+            int anchura = rnd.nextInt(300);
+            int altura = rnd.nextInt(250);
             Color color = new Color(rojo, azul, verde);
-            BouncingBall ball = new BouncingBall(50 + (20*i), 50, radio, color, ground, myCanvas);
+            BouncingBall ball = new BouncingBall(anchura +(10*i), altura, radio, color, ground, myCanvas);
             ball.draw();
             bolas.add(ball);
         }
