@@ -37,7 +37,11 @@ public class BallDemo
 
         for(int i = 0; i < numeroDeBolas; i++){
             int radio = rnd.nextInt(20)+10;
-            BouncingBall ball = new BouncingBall(50 + (20*i), 50, radio, Color.BLUE, ground, myCanvas);
+            int rojo = rnd.nextInt(255);
+            int azul = rnd.nextInt(255);
+            int verde = rnd.nextInt(255);
+            Color color = new Color(rojo, azul, verde);
+            BouncingBall ball = new BouncingBall(50 + (20*i), 50, radio, color, ground, myCanvas);
             ball.draw();
             bolas.add(ball);
         }
