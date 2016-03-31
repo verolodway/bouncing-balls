@@ -60,4 +60,23 @@ public class BallDemo
             }           
         }
     }
+    
+    /**
+     * Método que cuando se invoque debe dibujar un rectángulo sin relleno en la pantalla y tantas bolas como se indiquen como parámetro en la invocación del método 
+     * dentro de dicho rectángulo.
+
+     * Los objetos bola de esta actividad no serán del tipo BouncingBall: lo que debes hacer es crear una nueva clase denominada BoxBall (basándote en 
+     * la clase BouncingBall, evidentemente). Las bolas de tipo BoxBall llevan siempre la misma velocidad (1 pixel cada vez), dirección oblicua (no pueden moverse ni en horizontal ni 
+     * en vertical) y no les afecta la gravedad. La posición inicial, el color y la direccion de cada bola debe fijarse de manera aleatoria.
+
+     * Finalmente, consigue que las bolas de tipo "BoxBall" reboten cambiando de dirección cuando golpeen las paredes del rectángulo.
+     */
+    public void boxBounce(){
+        Canvas rectangulo = new Canvas ("Rectangulo", 600,500);
+        rectangulo.drawLine(50,50, 550,50);
+        rectangulo.drawLine(550,50, 550,400);
+        rectangulo.drawLine(550,400, 50,400);
+        rectangulo.drawLine(50,400, 50,50);
+        rectangulo.setVisible(true);
+    }
 }
