@@ -13,6 +13,7 @@ public class BallDemo
 {
     private Canvas myCanvas;
     private ArrayList<BouncingBall> bolas;
+    private ArrayList<BoxBall> bola;
     /**
      * Create a BallDemo object. Creates a fresh canvas and makes it visible.
      */
@@ -29,7 +30,7 @@ public class BallDemo
     {
         int ground = 400;   // position of the ground line
         Random rnd = new Random();
-        bolas = new ArrayList<>();
+        bolas = new ArrayList<BouncingBall>();
         myCanvas.setVisible(true);
         
         // draw the ground
@@ -71,12 +72,27 @@ public class BallDemo
 
      * Finalmente, consigue que las bolas de tipo "BoxBall" reboten cambiando de dirección cuando golpeen las paredes del rectángulo.
      */
-    public void boxBounce(){
+    public void boxBounce(int numeroDeBolas){
         Canvas rectangulo = new Canvas ("Rectangulo", 600,500);
+        int ground = 400;
+        bola = new ArrayList<BoxBall>();
         rectangulo.drawLine(50,50, 550,50);
         rectangulo.drawLine(550,50, 550,400);
         rectangulo.drawLine(550,400, 50,400);
         rectangulo.drawLine(50,400, 50,50);
         rectangulo.setVisible(true);
+         Random rnd = new Random();
+        for(int i = 0; i < numeroDeBolas; i++){
+            int radio = rnd.nextInt(20)+10;
+            int rojo = rnd.nextInt(255);
+            int azul = rnd.nextInt(255);
+            int verde = rnd.nextInt(255);
+            int anchura = rnd.nextInt(300);
+            int altura = rnd.nextInt(250);
+            Color color = new Color(rojo, azul, verde);
+            BoxBall ball = new BoxBall(anchura +(10*i), altura, radio, color, ground, rectangulo);
+            ball.draw();
+            bola.add(ball);
+        }
     }
 }
